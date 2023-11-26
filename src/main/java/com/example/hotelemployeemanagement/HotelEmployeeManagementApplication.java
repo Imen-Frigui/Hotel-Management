@@ -1,0 +1,13 @@
+package com.example.hotelemployeemanagement;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class HotelEmployeeManagementApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(HotelEmployeeManagementApplication.class, args);
+    }
+
+}
