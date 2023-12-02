@@ -1,4 +1,7 @@
 package com.esprit.microservices.reclamation.entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -13,16 +16,31 @@ public class Reclamation implements Serializable {
     private String description;
     @Temporal(TemporalType.DATE)
     private Date date;
-    private String statut;
+    private String status = "pending";
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    @JsonBackReference
+    private  User user;
 
     public Reclamation() {
-        super();
+        this.status = "pending";
     }
-    public Reclamation(ReclamationType type, String description, Date date, String statut) {
+
+    public Reclamation(int id, ReclamationType type, String description, Date date, String status, User user) {
+        this.id = id;
         this.type = type;
         this.description = description;
         this.date = date;
-        this.statut = statut;
+        this.status = status;
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getId() {
@@ -41,8 +59,8 @@ public class Reclamation implements Serializable {
         return date;
     }
 
-    public String getStatut() {
-        return statut;
+    public String getStatus() {
+        return status;
     }
 
     public void setId(int id) {
@@ -61,7 +79,15 @@ public class Reclamation implements Serializable {
         this.date = date;
     }
 
-    public void setStatut(String statut) {
-        this.statut = statut;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void accept() {
+        this.status = "accepted";
+    }
+
+    public void reject() {
+        this.status = "rejected";
     }
 }

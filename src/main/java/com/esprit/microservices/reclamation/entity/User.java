@@ -1,7 +1,10 @@
 package com.esprit.microservices.reclamation.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "`userHotel`")
@@ -16,9 +19,12 @@ public class User implements Serializable {
     private String email;
     @Enumerated(EnumType.STRING)
     private UserRole role;
+    @OneToMany(mappedBy = "user")
+    @JsonManagedReference
+    private List<Reclamation> reclamations;
 
     public User() {
-        super();
+
     }
 
     public User(String username, String password, String firstName, String lastName, String email, UserRole role) {
@@ -84,5 +90,13 @@ public class User implements Serializable {
 
     public void setRole(UserRole role) {
         this.role = role;
+    }
+
+    public List<Reclamation> getReclamations() {
+        return reclamations;
+    }
+
+    public void setReclamations(List<Reclamation> reclamations) {
+        this.reclamations = reclamations;
     }
 }
