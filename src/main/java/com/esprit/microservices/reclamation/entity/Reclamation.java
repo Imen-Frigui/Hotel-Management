@@ -10,7 +10,7 @@ public class Reclamation implements Serializable {
     private int id;
     @Enumerated(EnumType.STRING )
     private  ReclamationType type;
-    private String decription;
+    private String description;
     @Temporal(TemporalType.DATE)
     private Date date;
     private String statut;
@@ -18,9 +18,9 @@ public class Reclamation implements Serializable {
     public Reclamation() {
         super();
     }
-    public Reclamation(ReclamationType type, String decription, Date date, String statut) {
+    public Reclamation(ReclamationType type, String description, Date date, String statut) {
         this.type = type;
-        this.decription = decription;
+        this.description = description;
         this.date = date;
         this.statut = statut;
     }
@@ -33,8 +33,8 @@ public class Reclamation implements Serializable {
         return type;
     }
 
-    public String getDecription() {
-        return decription;
+    public String getDescription() {
+        return description;
     }
 
     public Date getDate() {
@@ -53,8 +53,8 @@ public class Reclamation implements Serializable {
         this.type = type;
     }
 
-    public void setDecription(String decription) {
-        this.decription = decription;
+    public void setDescription(String decription) {
+        this.description = decription;
     }
 
     public void setDate(Date date) {

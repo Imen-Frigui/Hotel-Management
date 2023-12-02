@@ -21,7 +21,7 @@ public class ReclamationService {
     public Reclamation update(int id,Reclamation newReclamation){
         if (reclamationRepository.findById(id).isPresent()) {
             Reclamation existingReclamation = reclamationRepository.findById(id).get();
-            existingReclamation.setDecription(newReclamation.getDecription());
+            existingReclamation.setDescription(newReclamation.getDescription());
             existingReclamation.setDate(newReclamation.getDate());
             existingReclamation.setStatut(newReclamation.getStatut());
             existingReclamation.setType(newReclamation.getType());
