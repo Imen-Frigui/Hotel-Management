@@ -21,8 +21,8 @@ public class Departement implements Serializable {
     private Long id;
     String departmentName;
     String description;
-    @OneToMany(mappedBy = "departement")
-    private Set<Employee> employees;
+//    @OneToMany(mappedBy = "departement")
+//    private Set<Employee> employees;
 
 
 
