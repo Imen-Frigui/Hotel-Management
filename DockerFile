@@ -1,0 +1,5 @@
+FROM openjdk:17
+EXPOSE 8081
+
+ADD target/HotelManagment-Room-1.jar HotelManagment-Room-1.jar
+ENTRYPOINT ["java","-jar","HotelManagment-Room-1.jar"]

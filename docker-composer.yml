@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  discovery:
+    image: "78a9f2f2b8475bd466b8264705240386f8ce29bc6baaf33f8dd01c8b6bad5e38"
+    ports:
+      - "8761:8761"
+
+  Room:
+    image: "9ec52bd02ca5874cf9a3a998fcbfc6124aab51af1d9db7272fd4be02f483930f"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8081:8081"
+    
