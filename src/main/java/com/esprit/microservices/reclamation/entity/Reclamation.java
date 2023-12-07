@@ -20,10 +20,10 @@ public class Reclamation implements Serializable {
     private String status = "pending";
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonManagedReference
     private  User user;
 
     public Reclamation() {
+        super();
         this.status = "pending";
     }
 
