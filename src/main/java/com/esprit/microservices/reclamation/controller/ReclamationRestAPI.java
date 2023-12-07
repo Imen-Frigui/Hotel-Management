@@ -2,9 +2,6 @@ package com.esprit.microservices.reclamation.controller;
 
 import com.esprit.microservices.reclamation.entity.Reclamation;
 import com.esprit.microservices.reclamation.service.ReclamationService;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
