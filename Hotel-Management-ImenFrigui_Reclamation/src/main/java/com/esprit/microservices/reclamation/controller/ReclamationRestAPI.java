@@ -27,10 +27,10 @@ public class ReclamationRestAPI {
         return new ResponseEntity<>(reclamationService.getAllReclamationsWithUser(), HttpStatus.OK);
     }
 
-    @PostMapping(value ="/add/{userID}" , consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value ="/add/{userID}" , consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Reclamation> createReclamation(@RequestBody Reclamation reclamation, @PathVariable Long userID) {
-        return new ResponseEntity<>(reclamationService.addReclamation(reclamation, userID), HttpStatus.OK);
+        return new ResponseEntity<>(reclamationService.addReclamation(reclamation, userID), HttpStatus.CREATED);
     }
     @PutMapping(value = "/update/{id}", produces = MediaType.APPLICATION_JSON_VALUE) @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Reclamation> updateReclamation(@PathVariable(value = "id") int id,  @RequestBody Reclamation reclamation){  return new ResponseEntity<>(reclamationService.update(id, reclamation),  HttpStatus.OK);

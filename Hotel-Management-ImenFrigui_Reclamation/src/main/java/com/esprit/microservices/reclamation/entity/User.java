@@ -1,7 +1,7 @@
 package com.esprit.microservices.reclamation.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -25,10 +25,11 @@ public class User implements Serializable {
     private List<Reclamation> reclamations;
 
     public User() {
-
+        super();
     }
 
-    public User(String username, String password, String firstName, String lastName, String email, UserRole role) {
+    public User(Long userId,String username, String password, String firstName, String lastName, String email, UserRole role) {
+        this.userId = userId;
         this.username = username;
         this.password = password;
         this.firstName = firstName;

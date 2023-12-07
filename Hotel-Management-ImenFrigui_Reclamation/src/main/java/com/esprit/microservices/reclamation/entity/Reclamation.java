@@ -1,7 +1,4 @@
 package com.esprit.microservices.reclamation.entity;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,10 +17,10 @@ public class Reclamation implements Serializable {
     private String status = "pending";
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonManagedReference
     private  User user;
 
     public Reclamation() {
+        super();
         this.status = "pending";
     }
 
