@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://user123:123@cluster0.hqqsk.mongodb.net/?retryWrites=true&w=majority',);
+mongoose.connect('mongodb+srv://hhhh',);
 
 const db = mongoose.connection;
 
