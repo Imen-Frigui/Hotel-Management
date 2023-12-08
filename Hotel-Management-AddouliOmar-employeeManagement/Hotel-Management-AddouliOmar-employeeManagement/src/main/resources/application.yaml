@@ -1,0 +1,9 @@
+#spring:
+#  security:
+#    oauth2:
+#      resource-server:
+#        jwt:
+#          jwk-set-uri: http://localhost:8180/realms/hotel-management-realm/protocol/openid-connect/certs
+#          issuer-uri: http://localhost:8180/auth/realms/hotel-management-realm
+server:
+  port: 8089

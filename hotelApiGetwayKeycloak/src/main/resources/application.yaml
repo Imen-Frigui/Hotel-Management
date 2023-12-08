@@ -1,0 +1,37 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: EmployeeManagement
+          uri: http://localhost:8089/
+          predicates:
+            - Path=/employee/**
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            provider: keycloak
+            client-id: test_client
+            client-secret: UI12oMHLyRfLjndN43KywNlt2tYTJdG0
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8090/login/oauth2/code/keycloak
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8180/realms/hotel-management-realm
+#            user-name-attribute: preferred_username
+#            authorization_uri: http://localhost:8180/realms/hotel-management-realm/protocol/openid-connect/auth
+#            token_uri: http://localhost:8180/realms/hotel-management-realm/protocol/openid-connect/token
+#            user-info-uri: http://localhost:8180/realms/hotel-management-realm/protocol/openid-connect/userinfo
+#            jwk-set-uri: http://localhost:8180/realms/hotel-management-realm/protocol/openid-connect/certs
+#            user-info-authentication-method: header
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+server:
+  port: 8090

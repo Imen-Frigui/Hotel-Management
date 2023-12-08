@@ -1,0 +1,19 @@
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/eurekaServer/pom.xml" />
+        <option value="$PROJECT_DIR$/Hotel-Management-RamiOuali-RoomService/Hotel-Management-RamiOuali-RoomService/pom.xml" />
+        <option value="$PROJECT_DIR$/Hotel-Management-ImenFrigui_Reclamation/pom.xml" />
+        <option value="$PROJECT_DIR$/Hotel-Management-Reservation_Management/Hotel-Management-Reservation_Management/pom.xml" />
+        <option value="$PROJECT_DIR$/Hotel-Management-HaninBenJemaa_Event_Managment/Hotel-Management-HaninBenJemaa_Event_Managment/pom.xml" />
+        <option value="$PROJECT_DIR$/Hotel-Management-AddouliOmar-employeeManagement/Hotel-Management-AddouliOmar-employeeManagement/pom.xml" />
+        <option value="$PROJECT_DIR$/hotelApiGetwayKeycloak/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
