@@ -1,0 +1,10 @@
+{
+    "realm": "hotel-management-realm",
+    "auth-server-url": "http://localhost:8080/",
+    "ssl-required": "external",
+    "resource": "1",
+    "credentials": {
+      "secret": ""
+    },
+    "confidential-port": 0
+  }
