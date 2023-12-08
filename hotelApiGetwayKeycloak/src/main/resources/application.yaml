@@ -11,18 +11,25 @@ spring:
             - Path=/employee/**
   security:
     oauth2:
-      client:
-        registration:
-          keycloak:
-            provider: keycloak
-            client-id: test_client
-            client-secret: UI12oMHLyRfLjndN43KywNlt2tYTJdG0
-            authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8090/login/oauth2/code/keycloak
-            scope: openid
-        provider:
-          keycloak:
-            issuer-uri: http://localhost:8180/realms/hotel-management-realm
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8180/realms/hotel-management-realm
+
+
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          keycloak:
+#            provider: keycloak
+#            client-id: test_client
+#            client-secret: UI12oMHLyRfLjndN43KywNlt2tYTJdG0
+#            authorization-grant-type: authorization_code
+#            redirect-uri: http://localhost:8090/login/oauth2/code/keycloak
+#            scope: openid
+#        provider:
+#          keycloak:
+#            issuer-uri: http://localhost:8180/realms/hotel-management-realm
 #            user-name-attribute: preferred_username
 #            authorization_uri: http://localhost:8180/realms/hotel-management-realm/protocol/openid-connect/auth
 #            token_uri: http://localhost:8180/realms/hotel-management-realm/protocol/openid-connect/token
