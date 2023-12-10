@@ -29,20 +29,7 @@ public class EmployeeController {
 
     @PutMapping("/update")
     public Employee update(@RequestBody Employee s) {
-        Employee mod = employeeService.getById(s.getId());
-        Field[] fields = Employee.class.getDeclaredFields();
-        for (Field field : fields) {
-            try {
-                field.setAccessible(true);
-                Object updatedValue = field.get(s);
-                if (updatedValue != null) {
-                    field.set(mod, updatedValue);
-                }
-            } catch (IllegalAccessException error) {
-                throw new RuntimeException("Failed to update entity fields", error);
-            }
-        }
-        return employeeService.update(mod);
+        return employeeService.update(s);
     }
 
     @GetMapping("/get/{id}")
