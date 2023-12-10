@@ -7,7 +7,6 @@ import tn.esprit.microservice.RoomService.service.RoomService;
 
 import java.util.List;
 import java.util.Optional;
-@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/rooms")
 public class RoomController {
