@@ -14,8 +14,8 @@ const getUserById = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const userId = mongoose.Types.ObjectId(id);
-    const user = await User.findById(userId);
+    //const userId = mongoose.Types.ObjectId(id);
+    const user = await User.findById(id);
 
     if (!user) {
       return res.status(404).json({ error: 'User not found' });

@@ -29,6 +29,9 @@ public class ApiGatwayApplication {
                 .route("room-service", r -> r.path("/room/**")
                         .filters(f -> f.stripPrefix(1))
                         .uri("lb://ROOMSERVICE"))
+                .route("user-service", r -> r.path("/user/**")
+                        .filters(f -> f.stripPrefix(1))
+                        .uri("lb://USERSERVICE"))
                 .build();
     }
 
