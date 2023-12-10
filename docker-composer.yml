@@ -95,3 +95,74 @@ services:
     image: "eurekaserver"
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eurekaServer:8761/eureka/
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0.1
+    hostname: key
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      DB_VENDOR: MYSQL
+      DB_ADDR: mysql
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      PROXY_ADDRESS_FORWARDING: "true"
+    ports:
+      - 8180:8080
+      - 8443:8443
+    depends_on:
+      - mysql-kc
+    command:
+      - start-dev
+
+  mysql-kc:
+    image: mysql:5.7.31
+    ports:
+      - 27021:27017
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: keycloak
+      MYSQL_USER: keycloak
+      MYSQL_PASSWORD: password
+
+  ApiGateway:
+    container_name: apigatway
+    build: .\
+    ports:
+      - "8090:8090"
+    hostname: apiGateway
+    image: "apigatway"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://eurekaServer:8761/eureka/
+      - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI= http://key:8180/realms/hotel-management-realm
+    depends_on:
+      - Eureka
+      - keycloak
+    links:
+      - Eureka
+      - Employee
+
+  User:
+    container_name: user
+    build: .\
+    ports:
+      - "3000:3000"
+    hostname: user
+    image: "user-image"
+    depends_on:
+      - keycloak
+      - Mongo
+    command: "node app.js"
+
+  Mongo:
+    container_name: Mongo
+    image: "mongo:5-focal"
+    ports:
+      - "27017:27017"
+    hostname: Mongo
+    depends_on:
+      - "Eureka"
+
