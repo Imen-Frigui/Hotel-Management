@@ -22,7 +22,7 @@ const eureka = new Eureka({
   instance: {
     app: 'USERSERVICE',
     hostName: 'localhost',
-    ipAddr: '127.0.0.1',
+    ipAddr: 'localhost',
     statusPageUrl: 'http://localhost:3000/actuator/health',
     port: {
       '$': 3000,

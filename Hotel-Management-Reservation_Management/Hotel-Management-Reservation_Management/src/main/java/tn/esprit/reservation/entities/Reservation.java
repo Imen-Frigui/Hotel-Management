@@ -28,6 +28,9 @@ public class Reservation implements Serializable {
     private Boolean valid;
     @Enumerated(EnumType.STRING)
     private TypeR typeReservation ;
+    @OneToOne
+    private Event event;
+
 
 
 

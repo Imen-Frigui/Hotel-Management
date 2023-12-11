@@ -1,5 +1,7 @@
 package esprit.tn.events.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,7 +31,8 @@ public class Event implements Serializable {
     private String location;
     @Enumerated(EnumType.STRING)
     private EventType eventType;
-
+    @OneToOne
+    private Employee employee;
     public Event() {
     }
 
