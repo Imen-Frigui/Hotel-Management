@@ -20,9 +20,7 @@ public class User implements Serializable {
     private String email;
     @Enumerated(EnumType.STRING)
     private UserRole role;
-    @OneToMany(mappedBy = "user")
-    @JsonBackReference
-    private List<Reclamation> reclamations;
+
 
     public User() {
         super();
@@ -94,11 +92,4 @@ public class User implements Serializable {
         this.role = role;
     }
 
-    public List<Reclamation> getReclamations() {
-        return reclamations;
-    }
-
-    public void setReclamations(List<Reclamation> reclamations) {
-        this.reclamations = reclamations;
-    }
 }

@@ -15,31 +15,21 @@ public class Reclamation implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date date;
     private String status = "pending";
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private  User user;
+
 
     public Reclamation() {
         super();
         this.status = "pending";
     }
 
-    public Reclamation(int id, ReclamationType type, String description, Date date, String status, User user) {
+    public Reclamation(int id, ReclamationType type, String description, Date date, String status) {
         this.id = id;
         this.type = type;
         this.description = description;
         this.date = date;
         this.status = status;
-        this.user = user;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public int getId() {
         return id;

@@ -1,7 +1,6 @@
 package com.esprit.microservices.reclamation.service;
 
 import com.esprit.microservices.reclamation.entity.Reclamation;
-import com.esprit.microservices.reclamation.entity.User;
 import com.esprit.microservices.reclamation.repository.ReclamationRepository;
 import com.esprit.microservices.reclamation.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +14,10 @@ public class ReclamationService {
     private ReclamationRepository reclamationRepository;
     @Autowired
     private UserRepository userRepository;
-    public Reclamation addReclamation(Reclamation reclamation, Long userId){
-        User user = userRepository.findById(userId).orElse(null);
-        if (user!=null){
-            reclamation.setUser(user);
+    public Reclamation addReclamation(Reclamation reclamation){
+      //  User user = userRepository.findById(userId).orElse(null);
+
             return reclamationRepository.save(reclamation);
-        } else {
-            return null;
-        }
     }
     public List<Reclamation> getAllReclamations(){
         return reclamationRepository.findAll();
@@ -45,10 +40,6 @@ public class ReclamationService {
         } else
             return "reclamation not deleted";
     }
-    public List<Reclamation> getAllReclamationsWithUser() {
-        return reclamationRepository.findAllWithUser();
-    }
-
     public Reclamation acceptReclamation(int id) {
         Reclamation reclamation = reclamationRepository.findById(id).orElse(null);
 
